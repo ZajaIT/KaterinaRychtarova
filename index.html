@@ -365,6 +365,13 @@ footer a:hover{
     cursor:pointer;
     color:#b89b8c;
 }
+    .nav-menu{
+    display:block;
+}
+
+.mobile-title{
+    display:none;
+}
 
 /* MOBILE MENU */
 @media(max-width:768px){
@@ -405,27 +412,27 @@ footer a:hover{
     }
 
     .nav-menu{
-        position:absolute;
-        top:78px;
-        right:20px;
-        width:220px;
+    position:absolute;
+    top:78px;
+    right:20px;
+    width:220px;
 
-        background:white;
-        border-radius:18px;
-        box-shadow:0 10px 35px rgba(0,0,0,0.12);
+    background:white;
+    border-radius:18px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.12);
 
-        opacity:0;
-        visibility:hidden;
-        transform:translateY(-12px) scale(0.98);
+    opacity:0;
+    visibility:hidden;
 
-        transition:
-            opacity .28s ease,
-            transform .28s ease,
-            visibility .28s;
+    transform:translateY(-10px);
+    transition:
+        opacity .3s ease,
+        transform .3s ease,
+        visibility .3s ease;
 
-        overflow:hidden;
-        z-index:1000;
-    }
+    overflow:hidden;
+    z-index:1000;
+}
 
     .nav-menu ul{
         flex-direction:column;
@@ -449,10 +456,10 @@ footer a:hover{
     }
 
     .nav-menu.active{
-        opacity:1;
-        visibility:visible;
-        transform:translateY(0) scale(1);
-    }
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
 
     /* Scroll offset pro mobil */
     #home,
