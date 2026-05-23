@@ -470,6 +470,13 @@ footer a:hover{
     .product img{
         height:240px;
     }
+    .desktop-title{
+    display:none;
+}
+
+.mobile-title{
+    display:inline;
+}
 }
 
 
@@ -542,6 +549,9 @@ footer a:hover{
     font-family:'Playfair Display',serif;
     font-size:38px;
     color:#b89b8c;
+}
+    .mobile-title{
+    display:none;
 }
     .services-grid{
     max-width:1100px;
@@ -760,8 +770,9 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 <!-- SERVICES -->
 <section id="services" class="services">
 
-    <h2 class="reveal">
-    Procedury, na které se můžete objednat
+    <h2 class="reveal services-title">
+    <span class="desktop-title">Procedury, na které se můžete objednat</span>
+    <span class="mobile-title">Procedury</span>
 </h2>
 
     <div class="services-grid">
