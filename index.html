@@ -366,37 +366,64 @@ footer a:hover{
     color:#b89b8c;
 }
 
-/* mobil */
+/* MOBILE MENU */
 @media(max-width:768px){
 
-    .menu-toggle{
-        display:block;
+    .top-bar{
+        justify-content:flex-end;
+        padding:10px 20px;
+        position:relative;
     }
-   
+
+    .menu-toggle{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:42px;
+        height:42px;
+        border-radius:12px;
+        cursor:pointer;
+        z-index:1100;
+        transition:all .3s ease;
+    }
+
+    .menu-toggle i{
+        font-size:24px;
+        color:#b89b8c;
+        transition:transform .3s ease;
+    }
+
     .header-logo img{
         height:38px;
     }
 
     .nav-menu{
         position:absolute;
-        top:70px;
+        top:78px;
         right:20px;
-        background:white;
-        border-radius:15px;
-        box-shadow:0 5px 20px rgba(0,0,0,0.1);
-        width:200px;
+        width:220px;
 
-        /* skryté + animace */
+        background:white;
+        border-radius:18px;
+        box-shadow:0 10px 35px rgba(0,0,0,0.12);
+
         opacity:0;
-        transform:translateY(-20px);
-        pointer-events:none;
-        transition:all .3s ease;
+        visibility:hidden;
+        transform:translateY(-12px) scale(0.98);
+
+        transition:
+            opacity .28s ease,
+            transform .28s ease,
+            visibility .28s;
+
+        overflow:hidden;
+        z-index:1000;
     }
 
     .nav-menu ul{
         flex-direction:column;
         gap:0;
-        padding:15px 0;
+        padding:10px 0;
     }
 
     .nav-menu li{
@@ -405,39 +432,44 @@ footer a:hover{
 
     .nav-menu a{
         display:block;
-        padding:12px;
+        padding:14px 20px;
+        transition:background .25s ease, color .25s ease;
+    }
+
+    .nav-menu a:hover{
+        background:#f8f4f1;
+        color:#b89b8c;
     }
 
     .nav-menu.active{
         opacity:1;
-        transform:translateY(0);
-        pointer-events:auto;
+        visibility:visible;
+        transform:translateY(0) scale(1);
     }
 
     /* Scroll offset pro mobil */
     #home,
     #about,
     #contact{
-        scroll-margin-top: 70px;
+        scroll-margin-top:70px;
     }
 
-.contact-wrapper{
-    grid-template-columns:1fr;
-    gap:35px;
-}
+    .contact-wrapper{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
 
-.contact-map{
-    height:320px;
-}
+    .contact-map{
+        height:320px;
+    }
 
-.cosmetics-grid{
+    .cosmetics-grid{
         grid-template-columns:1fr;
     }
 
     .product img{
         height:240px;
     }
-
 }
 
 
