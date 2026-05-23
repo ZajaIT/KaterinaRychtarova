@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kosmetika Kateřina Rychářová</title>
+
+<link rel="icon" href="favicon.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    visibility:hidden;
+}
+
+/* GLOBAL */
+body{
+    font-family:'Poppins',sans-serif;
+    background:white;
+    color:#333;
+    scroll-behavior:smooth;
+}
+
+/* Scroll animace sekcí */
+
+.reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.reveal.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll offset – jen pro menu sekce */
+
+#home,
+#about,
+#contact{
+    scroll-margin-top: 90px;
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:white;
+    border-bottom:1px solid #eee;
+    z-index:1000;
+}
+
+.top-bar{
+    max-width:1200px;
+    margin:auto;
+    padding:10px 30px;   
+
+    display:flex;
+    justify-content: flex-end;
+    align-items:center;
+
+    height:70px;          
+}
+    /* LOGO V HEADERU */
+.header-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    display: none;
+}
+
+.header-logo img{
+    height:70px;  
+    width:auto;
+    display:block;
+}
+
+.phone{
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.phone a{
+    color:#b89b8c;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.phone i{
+    color:#b89b8c;
+}
+
+.phone a:hover{
+    text-decoration:underline;
+}
+
+.phone i{
+    font-size:13px;
+}
+
+/* MENU */
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    letter-spacing:2px;   /* MEZERY MEZI PÍSMENY */
+    text-transform:uppercase; /* velká písmena */
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#b89b8c;
+}
+
+/* HERO */
+.hero{
+    padding-top:20px;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image: url('kosmetika-brezova.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat:no-repeat;
+    position: relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.25);
+}
+
+.hero-content{
+    max-width:1200px;
+    width:100%;
+    padding:40px 10px;
+
+    display:flex;              
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo{
+    max-width:350px;
+    width:100%;
+    transform: translateY(0px); /* POSUN LOGA */
+}
+
+/* HERO TEXT */
+.hero-right{
+    transform: translateY(-30px);
+    text-align:center;
+}
+
+.hero-right h1{
+    font-family:'Playfair Display',serif;
+    font-size:60px;
+    font-weight:400;
+    letter-spacing:2px;
+    color:#ffffff;
+    margin-bottom:25px;
+    text-shadow: 0 8px 40px rgba(0,0,0,0.75);
+    
+    line-height:1.2;
+    min-height:65px;
+}
+
+.hero-subtitle{
+    max-width:700px;
+    margin:0 auto 30px;
+    color:white;
+    font-size:18px;
+    line-height:1.7;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.45);
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 35px;
+    background: rgba(255,248,242,0.70);
+    color:#2f2f2f;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:500;
+    transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    transform-origin: center;
+    will-change: transform;
+
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.btn:hover{
+    background: rgba(255,248,242,0.90);
+    transform: translateZ(0) scale(1.05);
+}
+
+/* ABOUT */
+.about{
+    padding:60px 30px;
+    background:#f3f3f3;
+    text-align:center;
+}
+
+.about h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    color:#b89b8c;
+    margin-bottom:25px;
+}
+
+.about p{
+    max-width:700px;
+    margin:auto;
+    margin-bottom:0;
+    line-height:1.7;
+}
+
+/* CONTACT */
+.contact{
+    padding:60px 30px;
+    background:white;
+    text-align:center;
+}
+
+.contact-wrapper{
+    max-width:1100px;
+    margin:50px auto 0;
+
+    display:grid;
+    grid-template-columns:1fr 0.9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.contact-map{
+    height:340px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.12);
+    border:1px solid #eee;
+}
+
+.contact-map iframe{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.contact h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#b89b8c;
+    margin-bottom:30px;
+}
+
+.contact-text{
+    margin-bottom:30px;
+    color:#666;
+    font-size:16px;
+}
+    .contact-info{
+    margin-bottom:30px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+}
+
+.contact-info i{
+    color:#b89b8c;
+    margin-right:8px;
+}
+
+.contact-info a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+}
+
+.contact-info a:hover{
+    color:#b89b8c;
+}
+    .contact-info span{
+    font-size:14px;
+    color:#777;
+}
+
+/* FOOTER */
+footer{
+    padding:25px;
+    background:#f3f3f3;
+    text-align:center;
+    font-size:14px;
+    color:#777;
+}
+
+footer a{
+    color:#b89b8c;
+    text-decoration:none;
+    font-weight:500;
+}
+
+footer a:hover{
+    text-decoration:underline;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .hero-content{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .logo{
+        margin:auto;
+    }
+
+    nav ul{
+        gap:15px;
+    }
+}
+
+/* MOBILE MENU */
+
+.menu-toggle{
+    display:none;
+    font-size:22px;
+    cursor:pointer;
+    color:#b89b8c;
+}
+
+/* mobil */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+   
+    .header-logo img{
+        height:38px;
+    }
+
+    .nav-menu{
+        position:absolute;
+        top:70px;
+        right:20px;
+        background:white;
+        border-radius:15px;
+        box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        width:200px;
+
+        /* skryté + animace */
+        opacity:0;
+        transform:translateY(-20px);
+        pointer-events:none;
+        transition:all .3s ease;
+    }
+
+    .nav-menu ul{
+        flex-direction:column;
+        gap:0;
+        padding:15px 0;
+    }
+
+    .nav-menu li{
+        text-align:center;
+    }
+
+    .nav-menu a{
+        display:block;
+        padding:12px;
+    }
+
+    .nav-menu.active{
+        opacity:1;
+        transform:translateY(0);
+        pointer-events:auto;
+    }
+
+    /* Scroll offset pro mobil */
+    #home,
+    #about,
+    #contact{
+        scroll-margin-top: 70px;
+    }
+
+.contact-wrapper{
+    grid-template-columns:1fr;
+    gap:35px;
+}
+
+.contact-map{
+    height:320px;
+}
+
+.cosmetics-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product img{
+        height:240px;
+    }
+
+}
+
+
+/* MOBILE – hero title + button výš */
+@media (max-width: 600px){
+
+    .hero-line-1,
+.hero-line-2{
+    display:block;
+}
+    .hero-right{
+        transform: translateY(-60px);
+    }
+
+    .hero-right h1{
+    font-size: 36px;
+    white-space: normal;   
+    overflow-wrap: anywhere;  
+}
+
+    .hero-right .btn{
+        margin-top: -15px;
+    }
+
+    .about{
+        padding-top: 30px;
+        margin-top: 0px;
+    }
+
+    /* Kontakt – celá sekce výš */
+    #contact{
+        margin-top: -80px;
+    }
+}
+
+    /* HERO LOAD ANIMATION */
+.hero-animate{
+    opacity:0;
+    transform:translateY(20px);
+}
+
+.hero-animate.start{
+    animation: heroFadeUp 0.75s ease-out forwards;
+}
+
+.hero-delay-1.start{
+    animation-delay:0.25s;
+}
+
+.hero-delay-2.start{
+    animation-delay:0.5s;
+}
+
+@keyframes heroFadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+    /* SERVICES SECTION */
+
+.services{
+    padding:80px 30px;
+    background:white;
+    text-align:center;
+}
+
+.services h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#b89b8c;
+}
+    .services-grid{
+    max-width:1100px;
+    margin:50px auto 0;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:50px;
+}
+
+.service{
+    text-align:center;
+}
+
+.service-icon{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 18px;
+}
+
+.service h3{
+    font-family:'Poppins', sans-serif;
+    font-size:16px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#333;
+    margin-bottom:14px;
+}
+
+.service-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    color:#555;
+    line-height:1.6;
+    font-size:14px;
+}
+    @media (max-width: 768px){
+
+
+    .services-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-top:35px;
+    }
+
+    .service-icon{
+        width:80px;
+        height:80px;
+    }
+}
+    .services-note{
+    max-width:600px;
+    margin:70px auto 0;
+    text-align:center;
+    font-size:14px;
+    color:#777;
+    line-height:1.6;
+}
+
+/* COSMETICS */
+
+.cosmetics{
+    padding:80px 30px;
+    background:#f8f8f8;
+    text-align:center;
+}
+
+.cosmetics h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#b89b8c;
+    margin-bottom:20px;
+}
+
+.cosmetics-text{
+    max-width:700px;
+    margin:0 auto 50px;
+    color:#666;
+    line-height:1.7;
+}
+
+.cosmetics-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+.product{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+    transition:transform .3s ease;
+}
+
+.product img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:18px;
+}
+
+.product h3{
+    font-size:18px;
+    margin-bottom:10px;
+    color:#333;
+}
+
+.product p{
+    font-size:14px;
+    color:#666;
+    line-height:1.6;
+}
+
+    /* MOBIL LANDSCAPE */
+@media (max-height: 500px) and (orientation: landscape){
+
+    .hero{
+        padding-top: 90px;
+    }
+
+    .hero-right{
+        transform: translateY(0);
+    }
+
+    .hero-right h1{
+        font-size: 36px;   
+        min-height: 0;
+    }
+
+    .hero-content{
+        padding: 20px 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="top-bar">
+
+        <!-- NOVĚ LOGO V HEADERU -->
+    <a href="#home" class="header-logo">
+      <img src="logo.png" alt="Aiva Beauty">
+    </a>
+        
+        <div class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+</div>
+
+<nav class="nav-menu">
+    <ul>
+        <li><a href="#home">DOMŮ</a></li>
+        <li><a href="#about">O MNĚ</a></li>
+        <li><a href="#services">SLUŽBY</a></li>
+        <li><a href="#cosmetics">KOSMETIKA</a></li>
+        <li><a href="#soap">MÝDLA</a></li>
+        <li><a href="#contact">KONTAKT</a></li>
+    </ul>
+</nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-right">
+
+            <h1 class="hero-animate hero-delay-1">
+    <span class="hero-line-1">Kosmetika</span>
+    <span class="hero-line-2">Kateřina Rychářová</span>
+</h1>
+
+<p class="hero-subtitle hero-animate hero-delay-2">
+    Přijďte si odpočinout a zároveň se zkrášlit do útulného kosmetické salónku v Březové.
+</p>
+
+            <a href="#contact" class="btn hero-animate">
+                Vytvořit rezervaci
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="about">
+
+    <h2 class="reveal">O mém salonu</h2>
+
+    <p>
+    Srdečně vás zvu do mého kosmetického salonu v Březové. Vytvořila jsem zde prostor, kde se můžete na chvíli zastavit, uvolnit se a svěřit se do rukou odbornice. Zakládám si na pečlivosti, dlouholetých zkušenostech a lidském přístupu, který je dnes čím dál vzácnější. Můj kosmetický salon není jen místo, kam si přijdete pro úpravu – ale místo, kam se budete chtít vracet.<br><br> 
+Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s láskou vyráběné přírodní produkty Betula Březová.
+</p>
+
+</section>
+
+    <!-- SERVICES -->
+<!-- SERVICES -->
+<section id="services" class="services">
+
+    <h2 class="reveal">
+    Procedury, na které se můžete objednat
+</h2>
+
+    <div class="services-grid">
+
+        <div class="service">
+            <img src="skin.png" alt="Kosmetika" class="service-icon">
+            <h3>Kosmetika</h3>
+            <div class="service-list">
+                <div>Kompletní kosmetické ošetření</div>
+                <div>Hloubkové čištění pleti</div>
+                <div>Péče o oční okolí</div>
+                <div>Ošetření kolagenovými nitěmi</div>
+            </div>
+        </div>
+
+<div class="service">
+            <img src="procedure.png" alt="CurlyHair" class="service-icon">
+            <h3>Celotělové procedury</h3>
+            <div class="service-list">
+                <div>Termozábaly</div>
+                <div>Kavitace</div>
+                <div>Body wrap zábal</div>
+                <div>Vacuum Fit</div>
+            </div>
+        </div>
+
+        <div class="service">
+            <img src="lashes.png" alt="Kadeřnictví" class="service-icon">
+            <h3>Řasy</h3>
+            <div class="service-list">
+                <div>Trvalá na řasy</div>
+                <div>Lifting řas</div>
+                <div>Prodlužování řas</div>
+                <div>Metoda řasa na řasu</div>
+            </div>
+        </div>
+
+
+    </div>
+    <p class="services-note">
+        Kompletní ceník služeb je dostupný u nás v salonu
+        nebo Vám ho rádi zašleme na požádání.
+    </p>
+
+</section>
+
+<!-- COSMETICS -->
+<section id="cosmetics" class="cosmetics">
+
+    <h2 class="reveal">Přírodní produkty Betula</h2>
+
+    <p class="cosmetics-text">
+        Udělejte pro svoji pleť i tělo to nejlepší ve spojení s přírodou.
+    </p>
+
+    <div class="cosmetics-grid">
+
+        <div class="product">
+            <img src="prirodni-cistici-mydlo.png" alt="Přírodní čistící mýdlo">
+            <h3>Přírodní čistící mýdlo</h3>
+            <p>Čistící mýdlo z aktivního uhlí pro odstranění make-upu a jiných nečistot</p>
+        </div>
+
+        <div class="product">
+            <img src="prirodni-balzam.png" alt="Přírodní balzám">
+            <h3>Přírodní balzám na rty</h3>
+            <p>Balzám na rty ze včelího vosku, olivového oleje a oleje ze směsi bylin</p>
+        </div>
+
+        <div class="product">
+            <img src="tuhy-sampon.png" alt="Tuhý šampon">
+            <h3>Přírodní tuhý šampon</h3>
+            <p>Šampony jsou vyráběny ručně, tradiční metodou za studena. Neobsahují sulfáty, parabeny ani jiné dráždivé složky.</p>
+        </div>
+
+        <div class="product">
+            <img src="sprchovy-gel.png" alt="Sprchový gel">
+            <h3>Sprchový gel</h3>
+            <p>Vytvořeno na bázi kastilského mýdla, na výběr vůně pro ženy: Citronová tráva, Levandule, pro muže:Blue Charm, Rozmarýn s eukalyptem</p>
+        </div>
+
+        <div class="product">
+            <img src="peeling-mydlo.png" alt="Peeling mýdlo">
+            <h3>Peelingové mýdlo</h3>
+            <p>100 % přírodní, obsahuje čerstvě namletou kvalitní kávu a ovesné vločky, ovoněno vanilkou</p>
+        </div>
+
+        <div class="product">
+            <img src="pletove-oleje.png" alt="Pleťové oleje">
+            <h3>Přírodní pleťové oleje</h3>
+            <p>Mandlový pro krásnou pleť, Levandule na nespavost, Tymián při kašli - a mnoho dalších, přijďte se s nimi seznámit.</p>
+        </div>
+
+        <div class="product">
+            <img src="prirodni-mydlo.png" alt="Přírodní mýdlo">
+            <h3>Přírodní mýdlo</h3>
+            <p>Nechte přírodu, aby se postarala. Mýdla vyrábíme levandulová a nové také bambusová.</p>
+        </div>
+
+        <div class="product">
+            <img src="sumivky.png" alt="Šumivky">
+            <h3>Šumivky do koupele</h3>
+            <p>Hlavní složky: mořká sůl, pečující oleje. Stačí si napustit vanu a nechat svět šumět. Různé vůně pro různé dny.</p>
+        </div>
+
+        <div class="product">
+            <img src="koupelove-soli.png" alt="Koupelové soli">
+            <h3>Koupelové soli</h3>
+            <p>Vůně: Eukalyptus, máta, ble charm, zelený čas, levandule, meduňka, citronová tráva</p>
+        </div>
+
+    </div>
+
+</section>
+
+    
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+    <div class="contact-wrapper">
+
+        <div class="contact-left">
+
+            <h2 class="reveal">Kontaktujte mě</h2>
+
+            <p class="contact-text">
+                Zavolejte, napište nebo se rovnou zastavte osobně
+            </p>
+
+            <div class="contact-info">
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+420777660537">+420 777 660 537</a>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:rychtarova.k@seznam.cz">
+                        rychtarova.k@seznam.cz
+                    </a>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <a href="https://maps.app.goo.gl/1Qd2e2So2N7eN3xz7" target="_blank">
+                        Březová 85, 747 44 Březová
+                    </a>
+                </div>
+
+                <div>
+        <i class="fa-regular fa-clock"></i>
+        <span>Po–Pá 16:00–19:00</span>
+    </div>
+
+            </div>
+
+        </div>
+
+        <div class="contact-map">
+
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2575.7366041032355!2d17.8638488!3d49.791018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4713db87fbd9a579%3A0x36bd0201da2ea725!2zS29zbWV0aWthIEthdGXFmWluYSBSeWNodMOhxZlvdsOh!5e0!3m2!1scs!2shr!4v1778853762223!5m2!1scs!2shr"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        © Kateřina Rychtářová | Březová 117, 747 44 Březová | IČO 04563344
+    </div>
+
+    <div style="margin-top:8px;">
+        Designed by 
+        <a href="https://www.zajait.cz" target="_blank">
+            ZajaIT
+        </a>
+    </div>
+</footer>
+
+
+<script>
+
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
+
+// Smooth scroll s offsetem pro header
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if(!target) return;
+
+        // výška headeru
+        const headerHeight = document.querySelector('header').offsetHeight;
+
+        // pozice sekce
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+
+        // finální pozice
+        const offsetPosition = targetPosition - headerHeight;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+
+    });
+
+});
+
+
+// Mobile menu
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-menu a');
+const icon = menuToggle.querySelector('i');
+
+
+menuToggle.addEventListener('click', () => {
+
+    navMenu.classList.toggle('active');
+
+    if(navMenu.classList.contains('active')){
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+    }else{
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }
+
+});
+
+
+navLinks.forEach(link => {
+
+    link.addEventListener('click', () => {
+
+        navMenu.classList.remove('active');
+
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+
+    });
+
+});
+
+
+document.addEventListener('click', (e) => {
+
+    if(
+        navMenu.classList.contains('active') &&
+        !navMenu.contains(e.target) &&
+        !menuToggle.contains(e.target)
+    ){
+
+        navMenu.classList.remove('active');
+
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+
+    }
+
+});
+
+
+window.addEventListener('load', () => {
+    document.documentElement.style.visibility = 'visible';
+});
+
+
+// =======================
+// SCROLL REVEAL ANIMATION
+// =======================
+
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+        }
+
+    });
+
+}, {
+    threshold: 0.05,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+reveals.forEach(el => observer.observe(el));
+
+    // HERO LOAD ANIMATION TRIGGER
+window.addEventListener('load', () => {
+
+    const animated = document.querySelectorAll('.hero-animate');
+
+    animated.forEach(el => {
+        el.classList.add('start');
+    });
+
+});
+    
+</script>
+
+</body>
+</html>
+
+
