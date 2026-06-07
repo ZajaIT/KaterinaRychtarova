@@ -733,6 +733,17 @@ footer a:hover{
         width:200px;
         height:200px;
     }
+        .gallery{
+    padding:60px 20px;
+}
+
+.gallery-grid{
+    grid-template-columns:1fr;
+}
+
+.gallery-grid img{
+    height:260px;
+}
 }
     .services-note{
     max-width:600px;
@@ -741,6 +752,44 @@ footer a:hover{
     font-size:14px;
     color:#777;
     line-height:1.6;
+}
+
+    /* INTERIÉR */
+
+.gallery{
+    padding:80px 30px;
+    background:white;
+    text-align:center;
+}
+
+.gallery h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#b89b8c;
+    margin-bottom:20px;
+}
+
+.gallery-text{
+    max-width:700px;
+    margin:0 auto 50px;
+    color:#666;
+    line-height:1.7;
+}
+
+.gallery-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 /* COSMETICS */
@@ -1046,6 +1095,31 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 </p>
 
         </div>
+
+    </div>
+
+</section>
+
+    <!-- INTERIÉR -->
+<section class="gallery">
+
+    <h2 class="reveal">Prohlédněte si salon</h2>
+
+    <p class="gallery-text">
+        Příjemné a klidné prostředí, ve kterém si můžete odpočinout
+        a dopřát své pleti profesionální péči.
+    </p>
+
+    <div class="gallery-grid">
+
+        <img src="interier-studio.jpeg"
+             alt="Interiér kosmetického salonu Kateřiny Rychtářové">
+
+        <img src="kreslo-kosmetika.jpeg"
+             alt="Kosmetické křeslo v salonu Kateřiny Rychtářové">
+
+        <img src="interier-kosmetika.jpeg"
+             alt="Útulný interiér kosmetického salonu v Březové">
 
     </div>
 
