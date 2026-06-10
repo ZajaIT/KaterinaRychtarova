@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ceník služeb | Kosmetika Kateřina Rychtářová</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8f8f8;
+    color:#333;
+}
+
+.header{
+    background:white;
+    border-bottom:1px solid #eee;
+    padding:25px;
+    text-align:center;
+}
+
+.header h1{
+    font-family:'Playfair Display',serif;
+    color:#b89b8c;
+    font-size:42px;
+    font-weight:400;
+}
+
+.wrapper{
+    max-width:1000px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+.category{
+    background:white;
+    border-radius:24px;
+    padding:35px;
+    margin-bottom:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+}
+
+.category h2{
+    font-family:'Playfair Display',serif;
+    color:#b89b8c;
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+.price-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:12px 0;
+    border-bottom:1px solid #f0f0f0;
+}
+
+.price-row:last-child{
+    border-bottom:none;
+}
+
+.service{
+    color:#444;
+}
+
+.price{
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.back{
+    text-align:center;
+    margin:40px 0 80px;
+}
+
+.back a{
+    display:inline-block;
+    padding:14px 35px;
+    background:#b89b8c;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.back a:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+
+    .header h1{
+        font-size:34px;
+    }
+
+    .category{
+        padding:25px;
+    }
+
+    .price-row{
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .price{
+        color:#b89b8c;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Ceník služeb</h1>
+</div>
+
+<div class="wrapper">
+
+    <div class="category">
+        <h2>Řasy a obočí</h2>
+
+        <div class="price-row">
+            <div class="service">Prodloužení řas metodou řasa na řasu</div>
+            <div class="price">1200 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Doplnění řas metodou řasa na řasu</div>
+            <div class="price">600 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Prodloužení řas 3D–5D</div>
+            <div class="price">1000 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Doplnění řas 3D–5D</div>
+            <div class="price">500 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Formování obočí</div>
+            <div class="price">70 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Barvení obočí</div>
+            <div class="price">100 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Barvení řas</div>
+            <div class="price">150 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Trvalá na řasy / lifting</div>
+            <div class="price">450 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Laminace obočí</div>
+            <div class="price">500 Kč</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Kosmetická péče</h2>
+
+        <div class="price-row">
+            <div class="service">Mikromasáž očního okolí</div>
+            <div class="price">350 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Mikromasáž během ošetření</div>
+            <div class="price">150 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Hloubkové čištění pleti</div>
+            <div class="price">150 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Aplikace ampule nebo séra</div>
+            <div class="price">100 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Masáž obličeje a krku</div>
+            <div class="price">120 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Masáž obličeje, krku a dekoltu</div>
+            <div class="price">200 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Parafínový zábal rukou</div>
+            <div class="price">150 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Klasická maska</div>
+            <div class="price">120 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Alginátová maska</div>
+            <div class="price">200 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Galvanická žehlička – obličej</div>
+            <div class="price">300 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Galvanická žehlička – obličej + krk + dekolt</div>
+            <div class="price">400 Kč</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Trvalá depilace</h2>
+
+        <div class="price-row">
+            <div class="service">IPL fotodepilace – obličej</div>
+            <div class="price">140 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">IPL fotodepilace – podpaží</div>
+            <div class="price">140 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">IPL fotodepilace – paže</div>
+            <div class="price">250 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">IPL fotodepilace – třísla</div>
+            <div class="price">140 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">IPL fotodepilace – lýtka</div>
+            <div class="price">350 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">IPL fotodepilace – celé nohy</div>
+            <div class="price">700 Kč</div>
+        </div>
+    </div>
+
+<div class="category">
+    <h2>Depilace voskem</h2>
+
+    <div class="price-row">
+        <div class="service">Obličej, podpaží, třísla</div>
+        <div class="price">140 Kč</div>
+    </div>
+
+    <div class="price-row">
+        <div class="service">Lýtka</div>
+        <div class="price">350 Kč</div>
+    </div>
+
+    <div class="price-row">
+        <div class="service">Celé nohy</div>
+        <div class="price">700 Kč</div>
+    </div>
+
+</div>
+
+    <div class="category">
+        <h2>Tělové procedury</h2>
+
+        <div class="price-row">
+            <div class="service">Termozábal zad</div>
+            <div class="price">700 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Kavitace</div>
+            <div class="price">500 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">Vacuum Fit 100</div>
+            <div class="price">1000 Kč</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Body Wrap</h2>
+
+        <div class="price-row">
+            <div class="service">1 ošetření</div>
+            <div class="price">1490 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">3 ošetření (1 ošetření 1 333 Kč)</div>
+            <div class="price">3999 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">6 ošetření (1 ošetření 1 167 Kč)</div>
+            <div class="price">6999 Kč</div>
+        </div>
+
+        <div class="price-row">
+            <div class="service">10 ošetření (1 ošetření 999 Kč)</div>
+            <div class="price">9999 Kč</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="back">
+    <a href="index.html">Zpět na hlavní stránku</a>
+</div>
+
+</body>
+</html>
