@@ -1110,6 +1110,92 @@ footer a:hover{
     }
 }
 
+    
+/* =========================
+   GUA SHA – MODÁLNÍ OKNO
+========================= */
+
+.guasha-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.guasha-modal[hidden] {
+    display: none;
+}
+
+.guasha-modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+    border-radius: 22px;
+    padding: 45px 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.guasha-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: transparent;
+    color: #b89b8c;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.guasha-modal-close:hover {
+    color: #8f7062;
+}
+
+.guasha-modal .guasha-details {
+    padding: 0;
+    text-align: left;
+}
+
+.guasha-modal .guasha-details h3 {
+    padding-right: 25px;
+    margin-bottom: 30px;
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+
+    .guasha-modal {
+        padding: 15px;
+    }
+
+    .guasha-modal-box {
+        max-height: 88dvh;
+        padding: 45px 25px 25px;
+        border-radius: 18px;
+    }
+
+    .guasha-modal .guasha-details h3 {
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    .guasha-modal .guasha-details p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+}
+
+
 </style>
 </head>
 
@@ -1264,16 +1350,30 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
             </div>
 
             <button class="guasha-more"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="guasha-details">
-                Více o masáži
-                <span>+</span>
-            </button>
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-controls="guasha-modal">
+    Více o masáži
+    <span>+</span>
+</button>
 
-            <div id="guasha-details" class="guasha-details" hidden>
+            <div id="guasha-modal" class="guasha-modal" hidden
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="guasha-modal-title">
 
-                <h3>Estetické, zdravotní a psychické přínosy</h3>
+    <div class="guasha-modal-box">
+
+        <button type="button"
+                class="guasha-modal-close"
+                aria-label="Zavřít okno">
+            &times;
+        </button>
+
+        <div class="guasha-details">
+
+                <h3 id="guasha-modal-title">Estetické, zdravotní a psychické přínosy</h3>
 
                 <p><strong>Redukce otoků a podpora lymfy:</strong>
                 Jemné tahy stimulují lymfatický systém. Tím pomáhají
@@ -1309,9 +1409,11 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
                 Pomáhá zklidnit nervovou soustavu, odbourávat stres
                 a navodit vnitřní pohodu po náročném dni.</p>
 
-            </div>
+                  </div>
+    </div>
+</div>
 
-            <a href="#contact" class="guasha-btn">
+<a href="#contact" class="guasha-btn">
                 Objednat masáž
             </a>
 
@@ -1666,32 +1768,83 @@ window.addEventListener('load', () => {
 });
 
     
+
 /* =========================
-   GUA SHA – ROZBALENÍ TEXTU
+   GUA SHA – MODÁLNÍ OKNO
 ========================= */
 
 const guashaMore = document.querySelector('.guasha-more');
-const guashaDetails = document.querySelector('#guasha-details');
+const guashaModal = document.querySelector('#guasha-modal');
+const guashaClose = document.querySelector('.guasha-modal-close');
 
-if (guashaMore && guashaDetails) {
+if (guashaMore && guashaModal && guashaClose) {
 
-    guashaMore.addEventListener('click', () => {
+    let previousFocus = null;
+    let previousOverflow = '';
 
-        const isOpen = !guashaDetails.hidden;
+    function openGuashaModal() {
+        previousFocus = document.activeElement;
+        previousOverflow = document.body.style.overflow;
 
-        guashaDetails.hidden = isOpen;
+        guashaModal.hidden = false;
+        document.body.style.overflow = 'hidden';
 
-        guashaMore.setAttribute(
-            'aria-expanded',
-            String(!isOpen)
-        );
+        guashaMore.setAttribute('aria-expanded', 'true');
+        guashaClose.focus();
+    }
 
-        guashaMore.querySelector('span').textContent =
-            isOpen ? '+' : '−';
+    function closeGuashaModal() {
+        guashaModal.hidden = true;
+        document.body.style.overflow = previousOverflow;
 
+        guashaMore.setAttribute('aria-expanded', 'false');
+
+        if (previousFocus && previousFocus.isConnected) {
+            previousFocus.focus({ preventScroll: true });
+        }
+    }
+
+    guashaMore.addEventListener('click', openGuashaModal);
+
+    guashaClose.addEventListener('click', closeGuashaModal);
+
+    guashaModal.addEventListener('click', (event) => {
+        if (event.target === guashaModal) {
+            closeGuashaModal();
+        }
     });
 
+    document.addEventListener('keydown', (event) => {
+        if (guashaModal.hidden) return;
+
+        if (event.key === 'Escape') {
+            closeGuashaModal();
+        }
+
+        if (event.key === 'Tab') {
+            const focusable = guashaModal.querySelectorAll(
+                'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            );
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (!first) {
+                event.preventDefault();
+                return;
+            }
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
 }
+
 
     
 </script>
