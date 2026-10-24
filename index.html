@@ -916,7 +916,7 @@ footer a:hover{
     max-width: 1150px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
     gap: 65px;
     align-items: center;
 }
@@ -926,9 +926,10 @@ footer a:hover{
 .guasha-image img {
     display: block;
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 18px;
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 22px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.09);
 }
 
@@ -1071,11 +1072,8 @@ footer a:hover{
         gap: 35px;
     }
 
-    .guasha-image img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    margin: 0 auto;
+   .guasha-image img {
+    height: 300px;
     border-radius: 18px;
 }
 
