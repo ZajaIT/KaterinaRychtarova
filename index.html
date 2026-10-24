@@ -2226,13 +2226,28 @@ if (priceModal && priceClose && priceLinks.length) {
                 event.preventDefault();
                 first.focus();
             }
-        }
+               }
+    });
+
+    // Posunutí otevřené kategorie na začátek modalu
+    priceModal.querySelectorAll('.price-category').forEach(category => {
+        category.addEventListener('toggle', () => {
+            if (!category.open || priceModal.hidden) return;
+
+            const modalBox = priceModal.querySelector('.price-modal-box');
+
+            requestAnimationFrame(() => {
+                if (!category.open) return;
+
+                const categoryTop = category.getBoundingClientRect().top;
+                const modalTop = modalBox.getBoundingClientRect().top;
+
+                modalBox.scrollTop += categoryTop - modalTop - 35;
+            });
+        });
     });
 }
 
-
-
-    
 </script>
 
 </body>
