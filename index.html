@@ -905,7 +905,9 @@ footer a:hover{
 /* =========================
    GUA SHA MASÁŽ
 ========================= */
-
+.guasha-image-mobile {
+    display: none;
+}
 .guasha {
     padding: 90px 30px;
     background: #f8f8f8;
@@ -1073,9 +1075,26 @@ footer a:hover{
         gap: 35px;
     }
 
-   .guasha-image img {
+
+.guasha-image {
+    display: none;
+}
+
+
+.guasha-image-mobile {
+    display: block;
+    margin: 0 0 25px;
+}
+
+.guasha-image-mobile img {
+    display: block;
+    width: 100%;
     height: 300px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.09);
+    filter: saturate(0.75) contrast(0.92) brightness(1.04);
 }
 
     .guasha-content {
@@ -1338,7 +1357,11 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 
             <h2>Relaxační a SPA masáž GUA SHA</h2>
 
-            <p class="guasha-intro">
+<div class="guasha-image-mobile">
+    <img src="guasha.webp" alt="Relaxační masáž obličeje Gua Sha">
+</div>
+
+<p class="guasha-intro">
                 Dopřejte si chvíli odpočinku a péče o svou pleť.
                 Jemná masáž Gua Sha podporuje prokrvení,
                 pomáhá uvolnit napětí v obličejových svalech
