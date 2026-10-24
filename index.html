@@ -1216,6 +1216,175 @@ footer a:hover{
     }
 }
 
+    
+/* =========================
+   CENÍK – MODÁLNÍ OKNO
+========================= */
+
+.price-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.price-modal[hidden] {
+    display: none;
+}
+
+.price-modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+    border-radius: 22px;
+    padding: 45px 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.price-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: transparent;
+    color: #b89b8c;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.price-modal-close:hover {
+    color: #8f7062;
+}
+
+.price-modal-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #b89b8c;
+    margin-bottom: 30px;
+    padding-right: 30px;
+}
+
+.price-category {
+    border-bottom: 1px solid #e8e2de;
+}
+
+.price-category:first-child {
+    border-top: 1px solid #e8e2de;
+}
+
+.price-category summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 5px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: #444;
+    transition: color .3s ease;
+}
+
+.price-category summary::-webkit-details-marker {
+    display: none;
+}
+
+.price-category summary::after {
+    content: '+';
+    color: #b89b8c;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.price-category[open] summary::after {
+    content: '−';
+}
+
+.price-category summary:hover,
+.price-category[open] summary {
+    color: #b89b8c;
+}
+
+.price-category-body {
+    padding: 0 5px 20px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.price-row:last-child {
+    border-bottom: none;
+}
+
+.price-row strong {
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+
+    .price-modal {
+        padding: 15px;
+    }
+
+    .price-modal-box {
+        max-height: 88dvh;
+        padding: 45px 25px 25px;
+        border-radius: 18px;
+    }
+
+    .price-modal-box h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .price-category summary {
+        font-size: 15px;
+        padding: 18px 0;
+    }
+
+    .price-category-body {
+        padding: 0 0 18px;
+    }
+
+    .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 11px 0;
+        font-size: 13px;
+    }
+
+    .price-row strong {
+        color: #b89b8c;
+    }
+}
+
 
 </style>
 </head>
@@ -1241,7 +1410,6 @@ footer a:hover{
         <li><a href="#about">O MNĚ</a></li>
         <li><a href="#services">SLUŽBY</a></li>
         <li><a href="#guasha">GUA SHA</a></li>
-        <li><a href="cenik.html">CENÍK</a></li>
         <li><a href="#cosmetics">KOSMETIKA</a></li>
         <li><a href="#contact">KONTAKT</a></li>
     </ul>
@@ -1337,7 +1505,7 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 
     </div>
     <p class="services-note">
-    <a href="cenik.html">Zobrazit kompletní ceník služeb</a>
+    <a href="#price-modal" class="open-price-modal">Zobrazit kompletní ceník služeb</a>
 </p>
 
 </section>
@@ -1640,6 +1808,8 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 
 </section>
 
+    
+
 
 <!-- FOOTER -->
 <footer>
@@ -1654,6 +1824,106 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
         </a>
     </div>
 </footer>
+
+    <!-- CENÍK – MODÁLNÍ OKNO -->
+<div id="price-modal"
+     class="price-modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="price-modal-title"
+     hidden>
+
+    <div class="price-modal-box">
+
+        <button type="button"
+                class="price-modal-close"
+                aria-label="Zavřít ceník">
+            &times;
+        </button>
+
+        <h2 id="price-modal-title">Ceník služeb</h2>
+
+        
+<div class="price-modal-content">
+
+    <details class="price-category" name="price-category">
+        <summary>Řasy a obočí</summary>
+        <div class="price-category-body">
+            <div class="price-row"><span>Prodloužení řas metodou řasa na řasu</span><strong>1200 Kč</strong></div>
+            <div class="price-row"><span>Doplnění řas metodou řasa na řasu</span><strong>600 Kč</strong></div>
+            <div class="price-row"><span>Prodloužení řas 3D–5D</span><strong>1000 Kč</strong></div>
+            <div class="price-row"><span>Doplnění řas 3D–5D</span><strong>500 Kč</strong></div>
+            <div class="price-row"><span>Formování obočí</span><strong>70 Kč</strong></div>
+            <div class="price-row"><span>Barvení obočí</span><strong>100 Kč</strong></div>
+            <div class="price-row"><span>Barvení řas</span><strong>150 Kč</strong></div>
+            <div class="price-row"><span>Trvalá na řasy / lifting</span><strong>450 Kč</strong></div>
+            <div class="price-row"><span>Laminace obočí</span><strong>500 Kč</strong></div>
+        </div>
+    </details>
+
+    <details class="price-category" name="price-category">
+        <summary>Kosmetická péče</summary>
+        <div class="price-category-body">
+            <div class="price-row"><span>Mikromasáž očního okolí</span><strong>350 Kč</strong></div>
+            <div class="price-row"><span>Mikromasáž během ošetření</span><strong>150 Kč</strong></div>
+            <div class="price-row"><span>Hloubkové čištění pleti</span><strong>150 Kč</strong></div>
+            <div class="price-row"><span>Aplikace ampule nebo séra</span><strong>100 Kč</strong></div>
+            <div class="price-row"><span>Masáž obličeje a krku</span><strong>120 Kč</strong></div>
+            <div class="price-row"><span>Masáž obličeje, krku a dekoltu</span><strong>200 Kč</strong></div>
+            <div class="price-row"><span>Parafínový zábal rukou</span><strong>150 Kč</strong></div>
+            <div class="price-row"><span>Klasická maska</span><strong>120 Kč</strong></div>
+            <div class="price-row"><span>Alginátová maska</span><strong>200 Kč</strong></div>
+            <div class="price-row"><span>Galvanická žehlička – obličej</span><strong>300 Kč</strong></div>
+            <div class="price-row"><span>Galvanická žehlička – obličej + krk + dekolt</span><strong>400 Kč</strong></div>
+        </div>
+    </details>
+
+    <details class="price-category" name="price-category">
+        <summary>Trvalá depilace</summary>
+        <div class="price-category-body">
+            <div class="price-row"><span>IPL fotodepilace – obličej</span><strong>140 Kč</strong></div>
+            <div class="price-row"><span>IPL fotodepilace – podpaží</span><strong>140 Kč</strong></div>
+            <div class="price-row"><span>IPL fotodepilace – paže</span><strong>250 Kč</strong></div>
+            <div class="price-row"><span>IPL fotodepilace – třísla</span><strong>140 Kč</strong></div>
+            <div class="price-row"><span>IPL fotodepilace – lýtka</span><strong>350 Kč</strong></div>
+            <div class="price-row"><span>IPL fotodepilace – celé nohy</span><strong>700 Kč</strong></div>
+        </div>
+    </details>
+
+    <details class="price-category" name="price-category">
+        <summary>Depilace voskem</summary>
+        <div class="price-category-body">
+            <div class="price-row"><span>Obličej, podpaží, třísla</span><strong>140 Kč</strong></div>
+            <div class="price-row"><span>Lýtka</span><strong>350 Kč</strong></div>
+            <div class="price-row"><span>Celé nohy</span><strong>700 Kč</strong></div>
+        </div>
+    </details>
+
+    <details class="price-category" name="price-category">
+        <summary>Tělové procedury</summary>
+        <div class="price-category-body">
+            <div class="price-row"><span>Termozábal zad</span><strong>700 Kč</strong></div>
+            <div class="price-row"><span>Kavitace</span><strong>500 Kč</strong></div>
+            <div class="price-row"><span>Vacuum Fit 100</span><strong>1000 Kč</strong></div>
+        </div>
+    </details>
+
+    <details class="price-category" name="price-category">
+        <summary>Body Wrap</summary>
+        <div class="price-category-body">
+            <div class="price-row"><span>1 ošetření</span><strong>1490 Kč</strong></div>
+            <div class="price-row"><span>3 ošetření (1 ošetření 1 333 Kč)</span><strong>3999 Kč</strong></div>
+            <div class="price-row"><span>6 ošetření (1 ošetření 1 167 Kč)</span><strong>6999 Kč</strong></div>
+            <div class="price-row"><span>10 ošetření (1 ošetření 999 Kč)</span><strong>9999 Kč</strong></div>
+        </div>
+    </details>
+
+</div>
+
+
+    </div>
+
+</div>
 
 
 <script>
@@ -1869,6 +2139,97 @@ if (guashaMore && guashaModal && guashaClose) {
         }
     });
 }
+
+    
+/* =========================
+   CENÍK – MODÁLNÍ OKNO
+========================= */
+
+const priceModal = document.querySelector('#price-modal');
+const priceClose = document.querySelector('.price-modal-close');
+const priceLinks = document.querySelectorAll('.open-price-modal');
+
+if (priceModal && priceClose && priceLinks.length) {
+
+    let previousFocus = null;
+    let previousOverflow = '';
+
+    function openPriceModal(event) {
+        event.preventDefault();
+
+        previousFocus = document.activeElement;
+        previousOverflow = document.body.style.overflow;
+
+        priceModal.hidden = false;
+        document.body.style.overflow = 'hidden';
+
+
+        if (navMenu && menuToggle) {
+            navMenu.classList.remove('active');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+
+        priceClose.focus({ preventScroll: true });
+    }
+
+    function closePriceModal() {
+        priceModal.hidden = true;
+        document.body.style.overflow = previousOverflow;
+
+
+        priceModal.querySelectorAll('.price-category').forEach(category => {
+            category.open = false;
+        });
+
+        if (previousFocus && previousFocus.isConnected) {
+            previousFocus.focus({ preventScroll: true });
+        }
+    }
+
+    priceLinks.forEach(link => {
+        link.addEventListener('click', openPriceModal);
+    });
+
+    priceClose.addEventListener('click', closePriceModal);
+
+    priceModal.addEventListener('click', event => {
+        if (event.target === priceModal) {
+            closePriceModal();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (priceModal.hidden) return;
+
+        if (event.key === 'Escape') {
+            closePriceModal();
+        }
+
+        if (event.key === 'Tab') {
+            const focusable = priceModal.querySelectorAll(
+                'button:not([disabled]), summary, a[href], [tabindex]:not([tabindex="-1"])'
+            );
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (!first) {
+                event.preventDefault();
+                return;
+            }
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+}
+
 
 
     
