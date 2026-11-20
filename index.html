@@ -28,13 +28,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Google Fonts -->
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* RESET */
+
 *{
     margin:0;
     padding:0;
@@ -56,7 +56,7 @@ body{
     scroll-behavior:smooth;
 }
 
-/* Scroll animace sekcí */
+
 
 .reveal{
     opacity: 0;
@@ -70,7 +70,7 @@ body{
     transform: translateY(0);
 }
 
-/* Scroll offset – jen pro menu sekce */
+
 
 #home,
 #about,
@@ -99,7 +99,7 @@ header{
 
     height:70px;          
 }
-    /* LOGO V HEADERU */
+
 .header-logo{
     display:flex;
     align-items:center;
@@ -150,8 +150,8 @@ nav a{
     text-decoration:none;
     color:#444;
     font-weight:500;
-    letter-spacing:2px;   /* MEZERY MEZI PÍSMENY */
-    text-transform:uppercase; /* velká písmena */
+    letter-spacing:2px;   
+    text-transform:uppercase; 
     transition:.3s;
 }
 
@@ -197,10 +197,10 @@ nav a:hover{
 .logo{
     max-width:350px;
     width:100%;
-    transform: translateY(0px); /* POSUN LOGA */
+    transform: translateY(0px); 
 }
 
-/* HERO TEXT */
+
 .hero-right{
     transform: translateY(-30px);
     text-align:center;
@@ -252,7 +252,7 @@ nav a:hover{
     transform: translateZ(0) scale(1.05);
 }
 
-/* ABOUT */
+
 .about{
     padding:60px 30px;
     background:#f3f3f3;
@@ -563,7 +563,7 @@ footer a:hover{
     transform:translateY(0) scale(1);
 }
 
-    /* Scroll offset pro mobil */
+
     #home,
     #about,
     #contact{
@@ -623,7 +623,7 @@ footer a:hover{
 }
 
 
-/* MOBILE – hero title + button výš */
+
 @media (max-width: 600px){
 
     .hero-line-1,
@@ -649,13 +649,13 @@ footer a:hover{
         margin-top: 0px;
     }
 
-    /* Kontakt – celá sekce výš */
+
     #contact{
         margin-top: -80px;
     }
 }
 
-    /* HERO LOAD ANIMATION */
+
 .hero-animate{
     opacity:0;
     transform:translateY(20px);
@@ -767,7 +767,6 @@ footer a:hover{
     text-decoration:underline;
 }
 
-    /* INTERIÉR */
 
 .gallery{
     padding:80px 30px;
@@ -818,8 +817,6 @@ footer a:hover{
     height:300px;
 }
 }
-
-/* COSMETICS */
 
 .cosmetics{
     padding:80px 30px;
@@ -878,7 +875,7 @@ footer a:hover{
     line-height:1.6;
 }
 
-    /* MOBIL LANDSCAPE */
+
 @media (max-height: 500px) and (orientation: landscape){
 
     .hero{
@@ -920,9 +917,6 @@ footer a:hover{
     gap: 65px;
     align-items: center;
 }
-
-/* FOTOGRAFIE */
-
 .guasha-image img {
     display: block;
     width: 100%;
@@ -933,9 +927,6 @@ footer a:hover{
     box-shadow: 0 15px 40px rgba(0,0,0,0.09);
     filter: saturate(0.75) contrast(0.92) brightness(1.04);
 }
-
-/* TEXT */
-
 .guasha-content {
     text-align: left;
 }
@@ -964,9 +955,6 @@ footer a:hover{
     color: #555;
     margin-bottom: 25px;
 }
-
-/* DÉLKA MASÁŽE */
-
 .guasha-duration {
     display: flex;
     align-items: center;
@@ -980,8 +968,6 @@ footer a:hover{
     color: #b89b8c;
     font-size: 18px;
 }
-
-/* VÍCE O MASÁŽI */
 
 .guasha-more {
     display: flex;
@@ -1041,8 +1027,6 @@ footer a:hover{
     font-weight: 600;
 }
 
-/* OBJEDNÁNÍ */
-
 .guasha-btn {
     display: inline-block;
     margin-top: 30px;
@@ -1060,8 +1044,6 @@ footer a:hover{
     background: #a68778;
     transform: translateY(-2px);
 }
-
-/* MOBIL */
 
 @media (max-width: 768px) {
 
@@ -1197,8 +1179,6 @@ footer a:hover{
     padding-right: 25px;
     margin-bottom: 30px;
 }
-
-/* MOBIL */
 
 @media (max-width: 768px) {
 
@@ -1351,8 +1331,6 @@ footer a:hover{
     white-space: nowrap;
 }
 
-/* MOBIL */
-
 @media (max-width: 768px) {
 
     .price-modal {
@@ -1427,7 +1405,7 @@ footer a:hover{
 <header>
     <div class="top-bar">
 
-        <!-- NOVĚ LOGO V HEADERU -->
+
     <a href="#home" class="header-logo">
       <img src="logo.png" alt="Kosmetika Kateřina Rychtářová Březová">
     </a>
@@ -1490,7 +1468,7 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 
 </section>
 
-    <!-- SERVICES -->
+
 <!-- SERVICES -->
 <section id="services" class="services">
 
@@ -1968,9 +1946,6 @@ window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
 
-
-// Smooth scroll s offsetem pro header
-
 document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     link.addEventListener('click', function(e){
@@ -1981,13 +1956,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
         if(!target) return;
 
-        // výška headeru
         const headerHeight = document.querySelector('header').offsetHeight;
 
-        // pozice sekce
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-
-        // finální pozice
         const offsetPosition = targetPosition - headerHeight;
 
         window.scrollTo({
@@ -1998,9 +1969,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 
 });
-
-
-// Mobile menu
 
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -2082,8 +2050,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 reveals.forEach(el => observer.observe(el));
-
-    // HERO LOAD ANIMATION TRIGGER
 window.addEventListener('load', () => {
 
     const animated = document.querySelectorAll('.hero-animate');
@@ -2092,9 +2058,7 @@ window.addEventListener('load', () => {
         el.classList.add('start');
     });
 
-});
-
-    
+});   
 
 /* =========================
    GUA SHA – MODÁLNÍ OKNO
@@ -2261,7 +2225,6 @@ if (priceModal && priceClose && priceLinks.length) {
                }
     });
 
-    // Posunutí otevřené kategorie na začátek modalu
     priceModal.querySelectorAll('.price-category').forEach(category => {
         category.addEventListener('toggle', () => {
             if (!category.open || priceModal.hidden) return;
