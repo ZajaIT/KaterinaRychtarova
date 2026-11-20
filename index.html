@@ -1394,6 +1394,16 @@ footer a:hover{
         white-space: nowrap;
     }
 
+    .cosmetics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cosmetics-grid .product:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc((100% - 35px) / 2);
+        justify-self: center;
+    }
+
 }
 
 </style>
