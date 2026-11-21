@@ -1460,6 +1460,58 @@ footer a:hover{
     }
 
 }
+      /* HAMBURGER BEZ FONT AWESOME */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        background: transparent;
+        border: none;
+        padding: 0;
+        appearance: none;
+    }
+
+    .burger-icon,
+    .burger-icon::before,
+    .burger-icon::after {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #b89b8c;
+        border-radius: 2px;
+        transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .burger-icon {
+        position: relative;
+    }
+
+    .burger-icon::before,
+    .burger-icon::after {
+        content: "";
+        position: absolute;
+        left: 0;
+    }
+
+    .burger-icon::before {
+        top: -6px;
+    }
+
+    .burger-icon::after {
+        top: 6px;
+    }
+
+    .menu-toggle.open .burger-icon {
+        background: transparent;
+    }
+
+    .menu-toggle.open .burger-icon::before {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.open .burger-icon::after {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+}
 
 </style>
 </head>
@@ -1470,9 +1522,11 @@ footer a:hover{
 <header>
     <div class="top-bar">
         
-        <div class="menu-toggle">
-    <i class="fa-solid fa-bars"></i>
-</div>
+       <button class="menu-toggle" type="button"
+        aria-label="Otevřít menu"
+        aria-expanded="false">
+    <span class="burger-icon"></span>
+</button>
 
 <nav class="nav-menu">
     <ul>
@@ -2034,53 +2088,37 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
-const icon = menuToggle.querySelector('i');
 
+function closeMenu() {
+    navMenu.classList.remove('active');
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Otevřít menu');
+}
 
 menuToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('active');
 
-    navMenu.classList.toggle('active');
-
-    if(navMenu.classList.contains('active')){
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-xmark');
-    }else{
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-    }
-
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Zavřít menu' : 'Otevřít menu'
+    );
 });
-
 
 navLinks.forEach(link => {
-
-    link.addEventListener('click', () => {
-
-        navMenu.classList.remove('active');
-
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-
-    });
-
+    link.addEventListener('click', closeMenu);
 });
 
-
 document.addEventListener('click', (e) => {
-
-    if(
+    if (
         navMenu.classList.contains('active') &&
         !navMenu.contains(e.target) &&
         !menuToggle.contains(e.target)
-    ){
-
-        navMenu.classList.remove('active');
-
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-
+    ) {
+        closeMenu();
     }
-
 });
 
 
@@ -2222,10 +2260,8 @@ if (priceModal && priceClose && priceLinks.length) {
 
 
         if (navMenu && menuToggle) {
-            navMenu.classList.remove('active');
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
-        }
+    closeMenu();
+}
 
         priceClose.focus({ preventScroll: true });
     }
