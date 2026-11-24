@@ -1563,6 +1563,18 @@ footer a:hover{
     margin-bottom:0;
 }
 
+/* BETULA – CENY PRODUKTŮ */
+.product-modal-price{
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid #e8e2de;
+    text-align:center;
+    font-size:17px;
+    font-weight:500;
+    color:#b89b8c;
+    line-height:1.8;
+}
+
 </style>
 
       <script type="application/ld+json">
@@ -2495,6 +2507,21 @@ if (priceModal && priceClose && priceLinks.length) {
    BETULA – PRODUKTOVÝ MODAL
 ========================= */
 
+
+const productPrices = {
+    'cistici-mydlo': '70 Kč / 100 g',
+    'balzam': 'Kelímek – 60 Kč<br>Tyčinka – 50 Kč',
+    'tuhy-sampon': '70 Kč / 100 g',
+    'sprchovy-gel': '70 Kč / 200 ml',
+    'peeling-mydlo': '70 Kč / 100 g',
+    'pletove-oleje': '60 Kč',
+    'prirodni-mydlo': '70 Kč / 100 g',
+    'sumivky': 'Šumivka – 30 Kč<br>Šumivka s překvapením – 70 Kč',
+    'koupelove-soli': '30 Kč / 100 g',
+    'hydratace': '180 Kč / 100 ml',
+        'photoshop': '250 Kč / 100 ml'
+};
+
 const productData = {
 
     'photoshop': {
@@ -2809,7 +2836,11 @@ function openProductModal(card) {
     productPreviousOverflow = document.body.style.overflow;
 
     productTitle.textContent = data.title;
-    productContent.innerHTML = data.content;
+    productContent.innerHTML = data.content + `
+    <div class="product-modal-price">
+        ${productPrices[card.dataset.product] || ''}
+    </div>
+`;
 
     productModal.hidden = false;
     document.body.style.overflow = 'hidden';
