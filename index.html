@@ -65,17 +65,20 @@ body{
     overflow-x:hidden;
 }
 
-      @media (max-width:768px){
+     /* ZÁKAZ SCROLLOVÁNÍ – MENU */
+@media (max-width:768px){
     html:has(.nav-menu.active),
     body:has(.nav-menu.active){
         overflow:hidden;
     }
 }
-      @media (max-width:768px){
-    html:has(.nav-menu.active),
-    body:has(.nav-menu.active){
-        overflow:hidden;
-    }
+
+/* ZÁKAZ SCROLLOVÁNÍ – MODALY */
+html:has(.price-modal:not([hidden])),
+body:has(.price-modal:not([hidden])),
+html:has(.guasha-modal:not([hidden])),
+body:has(.guasha-modal:not([hidden])){
+    overflow:hidden !important;
 }
 body{
     font-family:'Poppins',sans-serif;
