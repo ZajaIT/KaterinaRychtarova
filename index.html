@@ -882,10 +882,12 @@ footer a:hover{
 
 .product{
     background:white;
-    padding:25px;
+    padding:25px 25px 38px;
     border-radius:20px;
     box-shadow:0 8px 25px rgba(0,0,0,0.06);
     transition:transform .3s ease;
+    position:relative;
+    cursor:pointer;
 }
 
 .product img{
@@ -908,6 +910,21 @@ footer a:hover{
     line-height:1.6;
 }
 
+.product::after{
+    content:"\2192";
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:24px;
+    line-height:1;
+    color:#b89b8c;
+    transition:transform .3s ease;
+}
+
+.product:hover::after{
+    transform:translateX(calc(-50% + 6px));
+}
 
 @media (max-height: 500px) and (orientation: landscape){
 
@@ -1498,6 +1515,35 @@ footer a:hover{
 }
 }
 
+/* BETULA – PRODUKTOVÝ MODAL */
+
+.product-modal-content{
+    font-size:14px;
+    line-height:1.8;
+    color:#555;
+}
+
+.product-modal-content h3{
+    font-size:17px;
+    font-weight:500;
+    color:#b89b8c;
+    margin-bottom:20px;
+}
+
+.product-modal-content p{
+    margin-bottom:18px;
+}
+
+.product-modal-content .product-warning{
+    background:#f8f3ef;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:500;
+    color:#8f7062;
+    margin-bottom:0;
+}
+
 </style>
 
       <script type="application/ld+json">
@@ -1764,7 +1810,7 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
 
     <div class="cosmetics-grid">
 
-        <div class="product">
+        <div class="product" data-product="cistici-mydlo" role="button" tabindex="0" aria-haspopup="dialog">
             <picture>
     <source media="(max-width: 768px)" srcset="prirodni-cistici-mydlo-mobile.webp">
     <img src="prirodni-cistici-mydlo.webp" alt="Přírodní čistící mýdlo">
@@ -1773,13 +1819,13 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
             <p>Čistící mýdlo z aktivního uhlí pro odstranění make-upu a jiných nečistot</p>
         </div>
 
-        <div class="product">
-            <img src="prirodni-balzam.webp" alt="Přírodní balzám">
+        <div class="product" data-product="balzam" role="button" tabindex="0" aria-haspopup="dialog">
+    <img src="prirodni-balzam.webp" alt="Přírodní balzám">
             <h3>Přírodní balzám na rty</h3>
             <p>Balzám na rty ze včelího vosku, olivového oleje a oleje ze směsi bylin</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="tuhy-sampon" role="button" tabindex="0" aria-haspopup="dialog">
             <picture>
     <source media="(max-width: 768px)" srcset="tuhy-sampon-mobile.webp">
     <img src="tuhy-sampon.webp" alt="Tuhý šampon">
@@ -1788,19 +1834,19 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
             <p>Šampony jsou vyráběny ručně, tradiční metodou za studena. Neobsahují sulfáty, parabeny ani jiné dráždivé složky.</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="sprchovy-gel" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="sprchovy-gel.webp" alt="Sprchový gel">
             <h3>Sprchový gel</h3>
             <p>Vytvořeno na bázi kastilského mýdla, na výběr vůně pro ženy: Citronová tráva, Levandule, pro muže:Blue Charm, Rozmarýn s eukalyptem</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="peeling-mydlo" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="peeling-mydlo.webp" alt="Peeling mýdlo">
             <h3>Peelingové mýdlo</h3>
             <p>100 % přírodní, obsahuje čerstvě namletou kvalitní kávu a ovesné vločky, ovoněno vanilkou</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="pletove-oleje" role="button" tabindex="0" aria-haspopup="dialog">
             <picture>
     <source media="(max-width: 768px)" srcset="pletove-oleje-mobile.webp">
     <img src="pletove-oleje.webp" alt="Pleťové oleje">
@@ -1809,19 +1855,19 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
             <p>Mandlový pro krásnou pleť, Levandule na nespavost, Tymián při kašli - a mnoho dalších, přijďte se s nimi seznámit.</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="prirodni-mydlo" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="prirodni-mydlo.webp" alt="Přírodní mýdlo">
             <h3>Přírodní mýdlo</h3>
             <p>Nechte přírodu, aby se postarala. Mýdla vyrábíme levandulová a nové také bambusová.</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="sumivky" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="sumivky.webp" alt="Šumivky">
             <h3>Šumivky do koupele</h3>
             <p>Hlavní složky: mořká sůl, pečující oleje. Stačí si napustit vanu a nechat svět šumět. Různé vůně pro různé dny.</p>
         </div>
 
-        <div class="product">
+        <div class="product" data-product="koupelove-soli" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="koupelove-soli.webp" alt="Koupelové soli">
             <h3>Koupelové soli</h3>
             <p>Vůně: Eukalyptus, máta, ble charm, zelený čas, levandule, meduňka, citronová tráva</p>
@@ -1830,6 +1876,28 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
     </div>
 
 </section>
+
+<!-- BETULA – PRODUKTOVÝ MODAL -->
+<div id="product-modal" class="price-modal" hidden
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="product-modal-title">
+
+    <div class="price-modal-box">
+
+        <button type="button"
+                class="price-modal-close product-modal-close"
+                aria-label="Zavřít okno">
+            &times;
+        </button>
+
+        <h2 id="product-modal-title"></h2>
+
+        <div id="product-modal-content" class="product-modal-content">
+        </div>
+
+    </div>
+</div>
 
     <!-- SYNCARE -->
 <section class="syncare">
@@ -2006,6 +2074,20 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
             <div class="price-row"><span>Laminace obočí</span><strong>500 Kč</strong></div>
         </div>
     </details>
+
+<details class="price-category" name="price-category">
+    <summary>Gua Sha masáž</summary>
+    <div class="price-category-body">
+        <div class="price-row">
+            <span>Relaxační a SPA masáž Gua Sha (45 min)</span>
+            <strong>600 Kč</strong>
+        </div>
+        <div class="price-row">
+            <span>Gua Sha ke kosmetickému ošetření</span>
+            <strong>150 Kč</strong>
+        </div>
+    </div>
+</details>
 
     <details class="price-category" name="price-category">
         <summary>Kosmetická péče</summary>
@@ -2378,6 +2460,345 @@ if (priceModal && priceClose && priceLinks.length) {
         });
     });
 }
+/* =========================
+   BETULA – PRODUKTOVÝ MODAL
+========================= */
+
+const productData = {
+
+    'sprchovy-gel': {
+        title: 'Sprchový gel',
+        content: `
+            <p>Je vytvořen na bázi kastilského mýdla. To znamená, že jej tvoří jen olivový olej, který prošel
+            procesem zmýdelnatění (uaaa, to byla maturita, než jsem to vychytala). Pak už přidáváme jen antialergenní přírodní vůně a kapku extraktu z grepového jádra pro konzervaci.</p>
+
+            <p>Obsah balení je 200 ml a měl by vám vydržet minimálně 6 měsíců.
+            Ovšem, je to jen pověst, neboť zpravidla je do tří týdnů spotřebováno.</p>
+
+            <p>Vůni si můžete (jak jinak) vybrat sami. Naše sprcháče mají vůně pro ženy:</p>
+
+            <p>
+                <strong>Citronová tráva</strong><br>
+                <strong>Levandule</strong>
+            </p>
+
+            <p>Ale také pro muže:</p>
+
+            <p>
+                <strong>Blue Charm</strong><br>
+                <strong>Rozmarýn s eukalyptem</strong>
+            </p>
+
+            <p>S našimi sprcháči si užijete svěžest, čerstvost a pohodu.</p>
+        `
+    },
+
+    'peeling-mydlo': {
+        title: 'Peelingové mýdlo',
+        content: `
+            <h3>Pokožka hladká a hebká na dotek</h3>
+
+            <p>Absolutně skvělé, nevtíravě voňavé, hooodně škrábací (nikoli ošizené) a samozřejmě 100 %
+            přírodní a vyrobené s láskou PEELINGOVÉ MÝDLO.</p>
+
+            <p>Interní název je „prdelkové mýdlo“, z čehož vyplývá, že není určeno na peeling obličeje (protože
+            škrábe a mohlo by dojít ke zranění očí či citlivé pleti).</p>
+
+            <p>Přidanou hodnotou je v tomto mýdle čerstvě
+            a nahrubo namletá kvalitní káva a ovesné vločky. Samozřejmě nechybí ovonění vanilkou.</p>
+
+            <p>Takže
+            kdo chce mít do léta krásnou prdelku (ano, kofein je to kouzlo) a hladkou pokožku zbavenou
+            odumřelých částeček kůže a jiných nečistot, nechť směle objednává.</p>
+        `
+    },
+
+    'pletove-oleje': {
+        title: 'Přírodní pleťové oleje',
+        content: `
+            <h3>Zázrak pro lidskou pokožku</h3>
+
+            <p><strong>Mandlový olej</strong></p>
+
+            <p>Je jedním z nejcennějších olejů. Svým složením je velice blízký lidské pokožce. Lze jej použít na
+            jakoukoliv pleť a používá se také v péči o pleť dětskou, které přináší zklidnění při podráždění od
+            plenek.</p>
+
+            <p>Olej se rychle vstřebává, na pokožce nezanechává pocit mastnoty, neucpává póry a nevyvolává
+            alergické reakce.</p>
+
+            <p><strong>Náš olej můžete použít různě:</strong><br>
+                – pro jemnou masáž těla i obličeje<br>
+                – na odličování, i očního make-upu<br>
+                – místo tělového mléka<br>
+                – místo nočního či denního krému<br>
+                – v zimním období pomáhá chránit pleť před povětrnostními vlivy<br>
+                – v těhotenství se doporučuje mazat bříško, stehna pro předcházení tvorby strií<br>
+                – v péči o pokožku rukou a o nehty<br>
+                – zapomenout nesmíme ani na vlasy, kdy zábal z mandlového oleje cca 2× měsíčně vlasy výrazně
+                regeneruje, hydratuje, dodává lesk<br>
+                – mandlový olej je jedním z nejlepších stimulátorů růstu vlasů<br>
+                – zábaly jsou vhodné zejména na suché, krepaté a kudrnaté vlasy
+            </p>
+
+            <p>
+                <strong>Bílý čaj s brusinkou</strong> – vhodný pro miminka, velmi jemná vůně<br>
+                <strong>Levandule</strong> – nespavost, zklidnění<br>
+                <strong>Meduňka</strong> – uklidňuje celý organismus a mysl<br>
+                <strong>Mléko s vanilkou</strong> – relaxační masáž<br>
+                <strong>Rozmarýn s eukalyptem</strong> – pomáhá k uvolnění namožených svalů<br>
+                <strong>Tymián</strong> – při kašli, na průdušky<br>
+                <strong>Šalvěj</strong> – při potížích spojených s přechodem<br>
+                <strong>Zelený čaj</strong> – lehká, svěží vůně, relax<br>
+                <strong>Kokos</strong> – příjemná nasládlá, spíše vánoční vůně<br>
+                <strong>Citrónová tráva</strong> – relaxační, svěží vůně
+            </p>
+        `
+    },
+
+    sumivky: {
+        title: 'Přírodní šumivky do koupele',
+        content: `
+            <h3>Relax a odpočinek po dlouhém dni</h3>
+
+            <p><strong>Dopřejte si odpočinek</strong></p>
+
+            <p>Měli jste náročný den? Nevíte v práci, co dřív? Je toho na vás ve škole moc? Zlobí děti? Neposlouchá
+            manžel? Nebo jednoduše potřebujete vypnout? Pak je ten nejlepší čas na relaxační koupel!!
+            Nevyřeší sice vaše problémy, zato ale přispěje k lepší náladě.</p>
+
+            <p>Šumivky jsou vyrobeny jen z toho nejlepšího, co se na takovou koupel hodí. Jejich hlavními
+            složkami jsou mořská sůl a pečující olej. Mořská sůl působí blahodárně na pokožku celého těla, její
+            účinky pocítí vaše kůže opravdu do hloubky. Olej zase vaši pokožku zvláční a dodá jí vitamíny.
+            Esenciální oleje dle vašeho výběru jsou pak příjemnou tečkou.</p>
+
+            <p>Napusťte si vanu a nechte v ní šumivku volně rozpustit. Už samotný proces rozpouštění a
+            uvolňování vůně vás přiměje se na koupel těšit.</p>
+
+            <p>
+                <strong>Máta</strong> – bolest hlavy, migrény<br>
+                <strong>Eukalyptus</strong> – nachlazení, dýchací potíže<br>
+                <strong>Rozmarýn</strong> – unavené a bolavé svaly<br>
+                <strong>Meduňka</strong> – klidný a spokojený spánek<br>
+                <strong>Blue Charm</strong> – pánská vůně – voní ženám MOC!!!<br>
+                <strong>Tymián</strong> – na průdušky, odkašlávání<br>
+                <strong>Zelený čaj</strong> – něco pro děti, jemná vůně<br>
+                <strong>Levandule</strong> – zklidnění po hektickém dni<br>
+                <strong>Citrónová tráva</strong> – relaxace jen tak<br>
+                <strong>Kokos</strong> – vánoční vůně, je sladší
+            </p>
+        `
+    },
+
+    'tuhy-sampon': {
+        title: 'Přírodní tuhý šampon',
+        content: `
+            <h3>Vaše vlasy vám budou vděčné</h3>
+
+            <p>Stejně jako naše mýdla, i tuhé šampony musí projít procesem zrání.</p>
+
+            <p>Do našich šamponů přidáváme nejen pěsticí oleje, které působí na celou délku vlasu, ale
+            přidáváme také bílý jíl, který má uklidňující účinky a díky vysokému podílu křemíku je ideální pro
+            citlivou a podrážděnou pokožku hlavy. Rovněž vlasy vyživuje, a tím zabraňuje jejich vypadávání.</p>
+
+            <p>Dále přidáváme ricinový olej, který vlasy vyživuje, a také jim dodává hebkost a lesk.</p>
+
+            <p>Šampon je obohacen o čistou kůru chininu.
+            Chinin vyživuje vlasy a zamezuje jejich vypadávání.</p>
+
+            <p>Tuhý šampon neboli mýdlo na vlasy je ideální přírodní alternativou klasických šamponů. Všechny
+            naše přírodní šampony jsou vyrobeny ručně, tradiční metodou za studena.</p>
+
+            <p>Neobsahují sulfáty, parabeny a další potenciálně dráždivé složky.</p>
+
+            <p><strong>Jsou rozložitelné v přírodě!!</strong></p>
+        `
+    },
+
+    'koupelove-soli': {
+        title: 'Přírodní koupelové soli',
+        content: `
+            <h3>Sůl je opravdu nad zlato</h3>
+
+            <p><strong>Hloubková péče o vaši pokožku</strong></p>
+
+            <p>Mořská sůl je ideální pro relaxaci, uvolnění kloubů i kožní problémy. Její účinky se výrazně
+            projevují při únavě a nachlazení. Blahodárně působí na psychiku člověka. Užijte si proto její
+            relaxační a zkrášlující účinky přímo ve své vaně.</p>
+
+            <p>Obsahuje velké množství stopových prvků a minerálů. Vysoké zastoupení v ní mají například
+            vápník, sodík, hořčík, draslík, jód, brom či železo.</p>
+
+            <p>Vyvážená kombinace těchto cenných látek lidský organismus revitalizuje a obnovuje jeho
+            rovnováhu. Unikátní složení minerálů v mořské soli do koupele přispívá především k lepšímu
+            prokrvení, vyčištění a vyživení pokožky. Minerály obsažené v mořské soli procházejí do hlubokých
+            vrstev kůže, kde na sebe vážou vlhkost. Díky tomu po koupeli zanechávají pokožku jemnou,
+            vláčnou a znatelně mladšího vzhledu.</p>
+
+            <p>Výborně se dá tohoto efektu využít pro koupele nohou.
+            Pokožka chodidel bývá velmi namáhanou a má tendenci tvrdnout a rohovatět. Pravidelné koupele
+            nohou s přídavkem mořské soli pokožku změkčí a vyživí. V kombinaci s následným ošetřením
+            pemzou či škrabkou vás výsledek překvapí.</p>
+
+            <p><strong>Vůně: Eukalyptus, Máta, Blue charm, Zelený čaj, Levandule, Meduňka, Citrónová tráva</strong></p>
+                       `
+    },
+
+    'prirodni-mydlo': {
+        title: 'Přírodní mýdlo',
+        content: `
+            <h3>Nechte přírodu, aby se postarala</h3>
+
+            <p>Přestože se držíme receptu a postupu výroby, které jsme se naučily od našich babiček, dnešní
+            mýdlo vyrábíme trochu jinak. Dříve se z odpadního tuku doma vařilo jednoduché domácí mýdlo.</p>
+
+            <p>V současnosti používáme pouze kvalitní tuky a oleje. Prakticky jsou v kvalitě potravin. Jako
+            srážedlo mýdla se používá čistý hydroxid sodný – všem dobře známý louh. Louh a tuk jsou dvě
+            základní složky domácího mýdla. K tomu dále přimícháváme drahé rostlinné oleje a hodnotné
+            extrakty jako prostředky pro ošetření pokožky a provonění mýdla.</p>
+
+            <p>Naše mýdlo musí zrát minimálně 3 až 4 týdny, aby jeho pH bylo vhodné pro pokožku. Procesem
+            zrání mizí z mýdla hydroxid sodný a zůstanou jen blahodárné účinky použitých olejů.</p>
+
+            <p><strong>Vyrábíme mýdla levandulová a nově bambusová.</strong></p>
+        `
+    },
+
+    'cistici-mydlo': {
+        title: 'Přírodní čisticí mýdlo',
+        content: `
+            <h3>Udělejte pro svou pleť to nejlepší</h3>
+
+            <p>Aktivní uhlí je produkt vyráběný z uhlí, dřeva nebo kokosových ořechů. Jeho struktura je pórovitá
+            s mimořádně velkým vnitřním povrchem. Proto umí vstřebat velké množství nečistot a škodlivin.
+            Dá se říct, že je magnetem na mastnotu a škodliviny.</p>
+
+            <p>Z aktivního uhlí vyrábíme čisticí mýdlo, které je určeno pro odstranění make-upu a jiných nečistot
+            z obličeje. Pleť vyčistí do hloubky.</p>
+
+            <p>Stačí obličej navlhčit vlažnou vodou, napěnit mýdlo, pěnu nanést na obličej, smýt nečistoty a poté
+            důkladně opláchnout vodou. Nezapomeňte obličej ošetřit vhodným krémem (denním či nočním).</p>
+
+            <p class="product-warning">
+                <strong>!!! POZOR !!!</strong><br>
+                Je to opravdové mýdlo, štípe v očích!! Buďte opatrní!!<br>
+                Aktivní uhlí je, jak víme, černé. Proto k osušení použijte raději tmavší ručník.
+            </p>
+        `
+    },
+
+    balzam: {
+        title: 'Přírodní balzám na rty',
+        content: `
+            <h3>Jemná, vyživující a ochranná péče</h3>
+
+            <p><strong>Balzám ze včelího vosku</strong></p>
+
+            <p>Včelí vosk je hned po medu druhým nejvýznamnějším produktem včely medonosné.
+            Využívá se již po staletí, nejen v kosmetice, ale také například v potravinářství nebo
+            farmaceutickém průmyslu.</p>
+
+            <p>V kosmetice je využíván především proto, že krásně drží na pokožce a je voděodolný. Proto je také
+            základní složkou našich balzámů. Díky této funkci ochrání vaše rty před vnějšími vlivy. Není určen
+            pouze pro vaše rty, je skvělým pomocníkem například u odřeného nosu při rýmě. Díky jeho
+            účinným látkám pomáhá hojit a regenerovat poškozenou pokožku. Pokud vám při vaření prskne
+            na ruku horký olej, zchlaďte si poraněné místo a natřete jej naším balzámem. Bolístka se začne
+            ihned zklidňovat.</p>
+
+            <p>Trpíte na opary nebo koutky? Pak ve fázi doléčování použijte náš balzám a zhojíte si poraněné rty
+            mnohem dříve a bez zbytečných bolestí.</p>
+
+            <p>Olivový olej, který je druhou základní složkou balzámu, dodá tělu vitamín E a betakaroten.</p>
+
+            <p>Olej ze směsi bylin balzámu dodá další hojivé látky a příjemnou vůni bez nepříjemného pocitu
+            pachuti v ústech.</p>
+
+            <p>Teplota tání je 60°C, takže se vám v kabelce jen tak nerozteče!!!</p>
+
+            <p class="product-warning">
+                POKUD JSTE ALERGIČTÍ NA VČELÍ PRODUKTY,
+                BALZÁM NEPOUŽÍVEJTE!!!
+            </p>
+        `
+    }
+
+};
+
+const productModal = document.querySelector('#product-modal');
+const productClose = productModal.querySelector('.product-modal-close');
+const productTitle = document.querySelector('#product-modal-title');
+const productContent = document.querySelector('#product-modal-content');
+
+let productPreviousFocus = null;
+let productPreviousOverflow = '';
+
+function openProductModal(card) {
+
+    const data = productData[card.dataset.product];
+
+    if (!data) return;
+
+    productPreviousFocus = card;
+    productPreviousOverflow = document.body.style.overflow;
+
+    productTitle.textContent = data.title;
+    productContent.innerHTML = data.content;
+
+    productModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    productModal.querySelector('.price-modal-box').scrollTop = 0;
+
+    productClose.focus({ preventScroll: true });
+}
+
+function closeProductModal() {
+
+    productModal.hidden = true;
+    document.body.style.overflow = productPreviousOverflow;
+
+    if (productPreviousFocus) {
+        productPreviousFocus.focus({ preventScroll: true });
+    }
+}
+
+document.querySelectorAll('.product[data-product]').forEach(card => {
+
+    card.addEventListener('click', () => {
+        openProductModal(card);
+    });
+
+    card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openProductModal(card);
+        }
+    });
+
+});
+
+productClose.addEventListener('click', closeProductModal);
+
+productModal.addEventListener('click', event => {
+    if (event.target === productModal) {
+        closeProductModal();
+    }
+});
+
+document.addEventListener('keydown', event => {
+
+    if (productModal.hidden) return;
+
+    if (event.key === 'Escape') {
+        closeProductModal();
+    }
+
+    if (event.key === 'Tab') {
+        event.preventDefault();
+        productClose.focus();
+    }
+
+});
 
 </script>
 
