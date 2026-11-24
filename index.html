@@ -611,9 +611,12 @@ footer a:hover{
     }
 
     .cosmetics-grid{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
+    gap:25px;
+}
+
+.cosmetics-grid .product{
+    width:100%;
+}
 
     .product img{
         height:240px;
@@ -890,10 +893,16 @@ footer a:hover{
 .cosmetics-grid{
     max-width:1200px;
     margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
     gap:35px;
+}
+
+@media (min-width:1025px){
+    .cosmetics-grid .product{
+        width:calc((100% - 70px) / 3);
+    }
 }
 
 .product{
@@ -1460,15 +1469,9 @@ footer a:hover{
         white-space: nowrap;
     }
 
-    .cosmetics-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .cosmetics-grid .product:last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        width: calc((100% - 35px) / 2);
-        justify-self: center;
-    }
+    .cosmetics-grid .product{
+    width:calc((100% - 35px) / 2);
+}
 
 }
     /* TABLET – SYNCARE */
@@ -1847,19 +1850,19 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
     <img src="tuhy-sampon.webp" alt="Tuhý šampon">
 </picture>
             <h3>Přírodní tuhý šampon</h3>
-            <p>Šampony jsou vyráběny ručně, tradiční metodou za studena. Neobsahují sulfáty, parabeny ani jiné dráždivé složky.</p>
+            <p>Šampony jsou vyráběny ručně, tradiční metodou za studena.</p>
         </div>
 
         <div class="product" data-product="sprchovy-gel" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="sprchovy-gel.webp" alt="Sprchový gel">
             <h3>Sprchový gel</h3>
-            <p>Vytvořeno na bázi kastilského mýdla, na výběr vůně pro ženy: Citronová tráva, Levandule, pro muže:Blue Charm, Rozmarýn s eukalyptem</p>
+            <p>Vytvořeno na bázi kastilského mýdla, na výběr vůně pro ženy i pro muže.</p>
         </div>
 
         <div class="product" data-product="peeling-mydlo" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="peeling-mydlo.webp" alt="Peeling mýdlo">
             <h3>Peelingové mýdlo</h3>
-            <p>100 % přírodní, obsahuje čerstvě namletou kvalitní kávu a ovesné vločky, ovoněno vanilkou</p>
+            <p>100 % přírodní, obsahuje čerstvě namletou kvalitní kávu a ovesné vločky.</p>
         </div>
 
         <div class="product" data-product="pletove-oleje" role="button" tabindex="0" aria-haspopup="dialog">
@@ -1868,19 +1871,19 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
     <img src="pletove-oleje.webp" alt="Pleťové oleje">
 </picture>
             <h3>Přírodní pleťové oleje</h3>
-            <p>Mandlový pro krásnou pleť, Levandule na nespavost, Tymián při kašli - a mnoho dalších, přijďte se s nimi seznámit.</p>
+            <p>Mandlový pro krásnou pleť, Levandule na nespavost, Tymián při kašli - a mnoho dalších.</p>
         </div>
 
         <div class="product" data-product="prirodni-mydlo" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="prirodni-mydlo.webp" alt="Přírodní mýdlo">
             <h3>Přírodní mýdlo</h3>
-            <p>Nechte přírodu, aby se postarala. Mýdla vyrábíme levandulová a nové také bambusová.</p>
+            <p>Mýdla vyrábíme levandulová a nové také bambusová.</p>
         </div>
 
         <div class="product" data-product="sumivky" role="button" tabindex="0" aria-haspopup="dialog">
             <img src="sumivky.webp" alt="Šumivky">
             <h3>Šumivky do koupele</h3>
-            <p>Hlavní složky: mořká sůl, pečující oleje. Stačí si napustit vanu a nechat svět šumět. Různé vůně pro různé dny.</p>
+            <p>Stačí si napustit vanu a nechat svět šumět. Různé vůně pro různé dny.</p>
         </div>
 
         <div class="product" data-product="koupelove-soli" role="button" tabindex="0" aria-haspopup="dialog">
@@ -1888,6 +1891,18 @@ Přijďte se nechat hýčkat! Navíc si u mě můžete zakoupit ručně a s lás
             <h3>Koupelové soli</h3>
             <p>Vůně: Eukalyptus, máta, ble charm, zelený čas, levandule, meduňka, citronová tráva</p>
         </div>
+
+<div class="product" data-product="hydratace" role="button" tabindex="0" aria-haspopup="dialog">
+    <img src="hydratace.webp" alt="Hydratace na max">
+    <h3>Hydratace na max</h3>
+    <p>Vysoce hydratační tělový krém s konopným olejem pro každodenní péči.</p>
+</div>
+
+<div class="product" data-product="photoshop" role="button" tabindex="0" aria-haspopup="dialog">
+    <img src="photoshop.webp" alt="Offline Photoshop">
+    <h3>Offline Photoshop</h3>
+    <p>Krém je složený z pouze přírodních ingredienci a obsahuje vyživující a pěstící růžový olej.</p>
+</div>
 
     </div>
 
@@ -2482,6 +2497,42 @@ if (priceModal && priceClose && priceLinks.length) {
 
 const productData = {
 
+    'photoshop': {
+        title: 'Offline Photoshop',
+        content: `
+            <p>Uvádíme na trh novou řadu z dílny Betula s názvem <strong>BEZ ŘEČÍ.</strong></p>
+
+            <h3>Vysoce hydratační krém pro vyhlazení vrásek s růžovým olejem, vit. E, D-panthenolem, kyselinou hyaluronovou a koenzymem Q10.</h3>
+
+            <p>Krém je vhodný pro pleť, která si zaslouží ještě o něco víc.</p>
+
+            <p>Hloubková hydratace pomáhá pokožku vyhladit, zjemnit její vzhled a dodat jí svěží a pružnější pocit.</p>
+
+            <p>Krém je složený pouze z přírodních ingrediencí a obsahuje vyživující a pěsticí růžový olej.</p>
+
+            <p>Krém se rychle vstřebává, na pokožce nezanechává mastný film.</p>
+
+            <p>K dispozici máme 100 ml balení a také 300 ml balení s pumpičkou.</p>
+        `
+    },
+
+    'hydratace': {
+        title: 'Hydratace na max',
+        content: `
+            <p>Uvádíme na trh novou řadu z dílny Betula s názvem <strong>BEZ ŘEČÍ.</strong></p>
+
+            <h3>Vysoce hydratační krém na tělo s konopným olejem</h3>
+
+            <p>Vhodný pro každodenní péči o pokožku, která potřebuje pořádnou dávku hydratace. Je příjemný pro běžné denní použití a skvěle se hodí také jako péče po opalování, kdy pokožka ocení intenzivní hydrataci a komfort. Krém mohou používat i muži jako náhradu balzámu po holení, kdy čerstvě oholenou pleť zklidní a dostatečně hydratuje.</p>
+
+            <p>Krém je složený pouze z přírodních ingrediencí a obsahuje vyživující a zklidňující konopný olej lisovaný za studena.</p>
+
+            <p>Krém se rychle vstřebává, na pokožce nezanechává mastný film.</p>
+
+            <p>K dispozici máme 100 ml balení a také 300 ml balení s pumpičkou.</p>
+        `
+    },
+
     'sprchovy-gel': {
         title: 'Sprchový gel',
         content: `
@@ -2820,4 +2871,3 @@ document.addEventListener('keydown', event => {
 
 </body>
 </html>
-
